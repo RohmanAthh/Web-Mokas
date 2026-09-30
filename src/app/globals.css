@@ -1,0 +1,113 @@
+@import "tailwindcss";
+
+@theme {
+  --font-sans: var(--font-jakarta), ui-sans-serif, system-ui, sans-serif;
+  --color-brand-50: #eff6ff;
+  --color-brand-100: #dbeafe;
+  --color-brand-500: #2563eb;
+  --color-brand-600: #1d4ed8;
+  --color-brand-700: #1e40af;
+  --color-brand-900: #172554;
+  --color-accent-400: #fbbf24;
+  --color-accent-500: #f59e0b;
+
+  /* Situs publik — neo-brutalist */
+  --font-grotesk: var(--font-space-grotesk), ui-sans-serif, system-ui, sans-serif;
+  --font-mono: var(--font-space-mono), ui-monospace, monospace;
+  --color-ink: #0a0a0a;
+  --color-paper: #fffbeb;
+  --color-nb-yellow: #fde047;
+  --color-nb-lemon: #fef08a;
+  --color-nb-cyan: #a5f3fc;
+  --color-nb-pink: #fda4af;
+  --color-nb-green: #bbf7d0;
+  --color-nb-violet: #c4b5fd;
+  --color-nb-orange: #fdba74;
+  --animate-marquee: marquee 30s linear infinite;
+  @keyframes marquee {
+    from { transform: translateX(0); }
+    to { transform: translateX(-50%); }
+  }
+}
+
+body {
+  background: #f8fafc;
+  color: #0f172a;
+}
+
+/* ---------- Neo-brutalist (situs publik) ---------- */
+@utility nb-page {
+  @apply bg-paper font-grotesk text-ink selection:bg-nb-yellow;
+}
+@utility nb-box {
+  @apply border-2 border-ink bg-white shadow-[4px_4px_0_0_var(--color-ink)];
+}
+@utility nb-box-hover {
+  @apply transition duration-150 hover:-translate-x-0.5 hover:-translate-y-0.5 hover:shadow-[7px_7px_0_0_var(--color-ink)];
+}
+@utility nb-btn {
+  @apply inline-flex cursor-pointer items-center justify-center gap-2 border-2 border-ink px-4 py-2.5 text-sm font-bold tracking-wide uppercase shadow-[3px_3px_0_0_var(--color-ink)] transition duration-100 hover:-translate-x-px hover:-translate-y-px hover:shadow-[5px_5px_0_0_var(--color-ink)] active:translate-x-[3px] active:translate-y-[3px] active:shadow-none disabled:cursor-not-allowed disabled:opacity-60;
+}
+@utility nb-input {
+  @apply block w-full rounded-none border-2 border-ink bg-white px-3 py-2.5 font-mono text-sm text-ink outline-none placeholder:text-ink/40 focus:bg-nb-lemon/40 focus:shadow-[3px_3px_0_0_var(--color-ink)];
+}
+@utility nb-label {
+  @apply mb-1.5 block font-mono text-xs font-bold tracking-wider uppercase;
+}
+@utility nb-sticker {
+  @apply inline-flex items-center gap-1 border-2 border-ink px-2 py-0.5 font-mono text-[11px] font-bold tracking-wide uppercase;
+}
+@utility nb-h {
+  @apply font-bold tracking-tight uppercase;
+}
+
+@utility container-page {
+  @apply mx-auto w-full max-w-7xl px-4 sm:px-6 lg:px-8;
+}
+@utility input {
+  @apply block w-full rounded-lg border border-slate-300 bg-white px-3 py-2 text-sm text-slate-900 shadow-sm outline-none placeholder:text-slate-400 focus:border-brand-500 focus:ring-2 focus:ring-brand-100 disabled:bg-slate-100;
+}
+@utility label {
+  @apply mb-1 block text-sm font-medium text-slate-700;
+}
+@utility btn {
+  @apply inline-flex cursor-pointer items-center justify-center gap-2 rounded-lg px-4 py-2.5 text-sm font-semibold transition disabled:cursor-not-allowed disabled:opacity-60;
+}
+@utility btn-primary {
+  @apply btn bg-brand-600 text-white shadow-sm hover:bg-brand-700;
+}
+@utility btn-accent {
+  @apply btn bg-accent-400 text-slate-900 shadow-sm hover:bg-accent-500;
+}
+@utility btn-secondary {
+  @apply btn border border-slate-300 bg-white text-slate-700 hover:bg-slate-50;
+}
+@utility btn-danger {
+  @apply btn bg-red-600 text-white hover:bg-red-700;
+}
+@utility btn-wa {
+  @apply btn bg-[#25D366] text-white shadow-sm hover:bg-[#1ebe5a];
+}
+@utility btn-sm {
+  @apply px-3 py-1.5 text-xs;
+}
+@utility card {
+  @apply rounded-2xl border border-slate-200 bg-white shadow-sm;
+}
+@utility badge {
+  @apply inline-flex items-center rounded-full px-2.5 py-0.5 text-xs font-semibold;
+}
+
+
+
+@layer components {
+  .data-table {
+    @apply w-full text-left text-sm;
+  }
+  .data-table th {
+    @apply border-b border-slate-200 bg-slate-50 px-4 py-3 text-xs font-semibold tracking-wide text-slate-500 uppercase;
+  }
+  .data-table td {
+    @apply border-b border-slate-100 px-4 py-3 align-top;
+  }
+}
